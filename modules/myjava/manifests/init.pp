@@ -19,9 +19,10 @@ class myjava (
   }
 
   staging::deploy { "jdk${version}.tar.gz":
-    source => $source,
-    target => '/opt/oracle/java',
-    strip  => 1,
+    source  => $source,
+    target  => '/opt/oracle/java',
+    strip   => 1,
+    creates => '/opt/oracle/java/java',
   }
 
 }
