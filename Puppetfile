@@ -1,6 +1,11 @@
 forge 'http://forge.puppetlabs.com'
 
 ###############################################################################
+# Local Modules
+mod 'myjava', :local => true
+
+
+###############################################################################
 # Puppet Supported Modules
 
 mod 'puppetlabs/stdlib'
@@ -8,6 +13,8 @@ mod 'puppetlabs/java'
 
 ###############################################################################
 # Other Puppet Created Modules
+
+mod 'puppetlabs/transition'
 
 ###############################################################################
 # Puppet Community Modules
@@ -28,6 +35,5 @@ mod 'puppet/archive'
 # My Modules
 
 
-# Other modules
 ###############################################################################
-#
+# Other modules
