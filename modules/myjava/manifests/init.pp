@@ -3,21 +3,17 @@ class myjava (
   $source = "/var/tmp/jdk${version}.tar.gz",
 ){
 
-  transition { 'clean up bad java version':
-    resource   => File['/opt/oracle/java'],
-    attributes => {
-      ensure   => absent,
-      recurse  => true,
-      purge    => true,
-    },
-    prior_to   => Staging::Deploy["jdk${version}.tar.gz"],
-  }
-
   file { '/opt/oracle/java':
     ensure => directory,
     mode   => '0777',
   }
-
+  if $::java_ver != $version {
+    exec { 'remove_incorrect_java':
+      command => '/bin/rm -rf /opt/oracle/java/*',
+      notify  => Staging::Deploy["jdk${version}.tar.gz"],
+      path    => ['/bin', '/usr/bin', '/usr/sbin', '/usr/local/bin', '/usr/local/sbin'],
+    }
+  }
   staging::deploy { "jdk${version}.tar.gz":
     source  => $source,
     target  => '/opt/oracle/java',
