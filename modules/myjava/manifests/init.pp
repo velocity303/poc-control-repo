@@ -19,7 +19,7 @@ class myjava (
     target  => '/opt/oracle/java',
     strip   => 1,
     creates => '/opt/oracle/java/bin',
-  }
+  }->
 
   file_line { 'java.security':
     ensure => present,
