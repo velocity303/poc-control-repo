@@ -10,6 +10,7 @@ mod 'ohs', :local => true
 ###############################################################################
 # Puppet Supported Modules
 
+mod 'puppetlabs/ntp'
 mod 'puppetlabs/stdlib'
 mod 'puppetlabs/java'
 
