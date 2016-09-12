@@ -11,8 +11,9 @@ class ohs (
   }
   if $::install_ohs == 'true' {
     exec { 'install ohs':
-      command => '/opt/sw/prd_middleware/OHS/11g/11_1_1_9_0/Disk1/runInstaller -silent -responseFile /opt/sw/prd_middleware/OHS/11g/11_1_1_9_0/OHS_ServerInstall.rsp -force 2>&1 | tee -a /var/schneider/logs/Middleware/ohs_install.log',
-      path    => ['/bin', '/usr/bin', '/usr/sbin', '/usr/local/bin', '/usr/local/sbin'],
+      command    => '/opt/sw/prd_middleware/OHS/11g/11_1_1_9_0/Disk1/runInstaller -silent -responseFile /opt/sw/prd_middleware/OHS/11g/11_1_1_9_0/OHS_ServerInstall.rsp -force 2>&1 | tee -a /var/schneider/logs/Middleware/ohs_install.log',
+      path       => ['/bin', '/usr/bin', '/usr/sbin', '/usr/local/bin', '/usr/local/sbin'],
+      timeout    => 0,
       #  creates => $oracle_home,
     }
   }
