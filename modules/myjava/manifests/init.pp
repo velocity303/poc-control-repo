@@ -21,4 +21,11 @@ class myjava (
     creates => '/opt/oracle/java/bin',
   }
 
+  file_line { 'java.security':
+    ensure => present,
+    path   => '/opt/oracle/java/jre/lib/security/java.security',
+    line   => 'securerandom.source=file:/dev/./urandom',
+    match  => '^securerandom.source=',
+  }
+
 }
