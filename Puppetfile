@@ -22,7 +22,7 @@ mod 'puppetlabs/transition'
 ###############################################################################
 # Puppet Community Modules
 
-mod 'nanliu/staging'
+mod 'puppet/staging'
 
 ###############################################################################
 # Other Approved Modules

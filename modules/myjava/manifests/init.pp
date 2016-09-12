@@ -3,7 +3,7 @@ class myjava (
   $source = "/var/tmp/jdk${version}.tar.gz",
 ){
 
-  file { '/opt/oracle/java':
+  file { [ '/opt/oracle', '/opt/oracle/java' ] :
     ensure => directory,
     mode   => '0777',
   }
@@ -18,7 +18,7 @@ class myjava (
     source  => $source,
     target  => '/opt/oracle/java',
     strip   => 1,
-    creates => '/opt/oracle/java/java',
+    creates => '/opt/oracle/java/bin',
   }
 
 }
