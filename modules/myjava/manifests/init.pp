@@ -18,7 +18,7 @@ class myjava (
     source  => $source,
     target  => '/opt/oracle/java',
     strip   => 1,
-    creates => '/opt/oracle/java/java',
+    creates => '/opt/oracle/java/bin',
   }
 
 }
